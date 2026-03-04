@@ -11,62 +11,75 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* Qantas Freight Brand Colors */
+  --qantas-red: #e40000;
+  --qantas-red-dark: #870000;
+  --qantas-red-bright: #e00;
+  --qantas-teal: #8de2e0;
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  /* Semantic Colors */
+  --background-color: #fff;
+  --light-color: #f4f5f6;
+  --dark-color: #323232;
+  --text-color: #323232;
+  --text-color-secondary: #6a6a6a;
+  --link-color: #e40000;
+  --link-hover-color: #870000;
+  --border-color: #dadada;
+  --alert-bg: #fcebcd;
 
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  /* Fonts */
+  --body-font-family: ciutadella, ciutadella-fallback, helvetica, arial, sans-serif;
+  --heading-font-family: ciutadella, ciutadella-fallback, "arial narrow", sans-serif;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  /* Body Sizes */
+  --body-font-size-m: 18px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
 
-  /* nav height */
+  /* Heading Sizes (mobile-first) */
+  --heading-font-size-xxl: 34px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 22px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-s: 16px;
+  --spacing-m: 24px;
+  --spacing-l: 32px;
+  --spacing-xl: 48px;
+  --spacing-xxl: 64px;
+
+  /* Buttons */
+  --button-border-radius: 4px;
+  --button-padding: 11px 24px;
+  --button-letter-spacing: 2px;
+  --button-transition: background 0.2s ease-in;
+
+  /* Layout */
+  --max-content-width: 1200px;
   --nav-height: 64px;
 }
 
-/* fallback fonts */
+/* Fallback font */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
+  font-family: ciutadella-fallback;
+  size-adjust: 100%;
+  src: local('Helvetica'), local('Arial');
 }
 
 @media (width >= 900px) {
   :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    /* Heading Sizes - Desktop */
+    --heading-font-size-xxl: 34px;
+    --heading-font-size-xl: 28px;
+    --heading-font-size-l: 22px;
+    --heading-font-size-m: 20px;
+    --heading-font-size-s: 18px;
+    --heading-font-size-xs: 16px;
   }
 }
 
@@ -76,8 +89,8 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
 }
 
 body.appear {
@@ -107,14 +120,20 @@ h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 400;
+  line-height: 1.15;
   scroll-margin: 40px;
+  color: var(--text-color);
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
+
+h3 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+}
+
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
@@ -127,6 +146,11 @@ pre,
 blockquote {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
+}
+
+p {
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
 }
 
 code,
@@ -153,7 +177,7 @@ button {
   font: inherit;
 }
 
-/* links */
+/* Links */
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
@@ -165,7 +189,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* buttons */
+/* Buttons */
 p.button-wrapper {
   margin: 12px 0;
 }
@@ -178,17 +202,21 @@ button.button {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
-  line-height: 1.25;
+  border: 2px solid var(--qantas-red);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.5;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: var(--button-letter-spacing);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: var(--button-transition);
 }
 
 a.button[aria-disabled="true"],
@@ -197,10 +225,11 @@ button.button:disabled {
   pointer-events: none;
 }
 
+/* Primary button - Qantas Red filled */
 a.button.primary,
 button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
+  border-color: var(--qantas-red);
+  background-color: var(--qantas-red);
   color: var(--background-color);
 }
 
@@ -208,9 +237,9 @@ a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  border-color: var(--qantas-red-dark);
+  background-color: var(--qantas-red-dark);
+  color: var(--background-color);
 }
 
 a.button.primary[aria-disabled="true"],
@@ -221,23 +250,24 @@ button.button.primary:disabled:hover,
 button.button.primary:disabled:focus-visible {
   background-color: var(--light-color);
   border-color: var(--light-color);
-  color: var(--dark-color);
+  color: var(--text-color-secondary);
 }
 
+/* Secondary button - outlined */
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
+  border-color: var(--dark-color);
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--dark-color);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  border-color: var(--qantas-red);
+  background-color: transparent;
+  color: var(--qantas-red);
 }
 
 a.button.secondary[aria-disabled="true"],
@@ -248,14 +278,14 @@ button.button.secondary:disabled:hover,
 button.button.secondary:disabled:focus-visible {
   background-color: var(--light-color);
   border-color: var(--light-color);
-  color: var(--dark-color);
+  color: var(--text-color-secondary);
 }
 
-/* high-impact call-to-action */
+/* Accent button - Dark red */
 a.button.accent,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
+  border-color: var(--qantas-red-dark);
+  background-color: var(--qantas-red-dark);
   color: var(--background-color);
 }
 
@@ -263,8 +293,8 @@ a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
+  border-color: var(--qantas-red);
+  background-color: var(--qantas-red);
 }
 
 a.button.accent[aria-disabled="true"],
@@ -275,7 +305,7 @@ button.button.accent:disabled:hover,
 button.button.accent:disabled:focus-visible {
   background-color: var(--light-color);
   border-color: var(--light-color);
-  color: var(--dark-color);
+  color: var(--text-color-secondary);
 }
 
 main img {
@@ -295,13 +325,13 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* Sections */
 main > .section {
   margin: 40px 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--max-content-width);
   margin: auto;
   padding: 0 24px;
 }
@@ -316,10 +346,35 @@ main > .section:first-of-type {
   }
 }
 
-/* section metadata */
+/* Section metadata variants */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.light-gray {
+  background-color: var(--light-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.dark {
+  background-color: var(--dark-color);
+  color: var(--background-color);
+  margin: 0;
+  padding: 40px 0;
+}
+
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark h6 {
+  color: var(--background-color);
+}
+
+main .section.dark a:any-link {
+  color: var(--background-color);
 }
