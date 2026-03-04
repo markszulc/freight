@@ -1,29 +1,74 @@
+/* Columns block */
 .columns > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns img {
-  width: 100%;
+  gap: 32px;
 }
 
 .columns > div > div {
   order: 1;
+  text-align: center;
 }
 
+/* Images default to natural size (icons stay small, constrained by container) */
+.columns img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inline pictures (icon + text columns) */
+.columns > div > div picture {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Title styling */
+.columns > div > div p strong {
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-color);
+}
+
+/* CTA links with arrow */
+.columns > div > div p:last-child a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--link-color);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.columns > div > div p:last-child a::after {
+  content: "\2192";
+  font-size: 1.1em;
+  transition: transform 0.2s ease;
+}
+
+.columns > div > div p:last-child a:hover {
+  color: var(--link-hover-color);
+}
+
+.columns > div > div p:last-child a:hover::after {
+  transform: translateX(4px);
+}
+
+/* Full-width image-only columns */
 .columns > div > .columns-img-col {
   order: 0;
 }
 
 .columns > div > .columns-img-col img {
   display: block;
+  width: 100%;
 }
 
-@media (width >= 900px) {
+/* Tablet+ : side-by-side columns */
+@media (width >= 600px) {
   .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    align-items: flex-start;
   }
 
   .columns > div > div {
