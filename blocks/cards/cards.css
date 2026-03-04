@@ -1,27 +1,137 @@
+/* Cards block */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
-}
-
+/* Card image */
 .cards .cards-card-image {
   line-height: 0;
 }
 
+.cards .cards-card-image picture {
+  display: block;
+}
+
 .cards > ul > li img {
+  display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Card body */
+.cards .cards-card-body {
+  flex: 1;
+  padding: 16px 0 0;
+}
+
+.cards .cards-card-body p {
+  margin: 0 0 8px;
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.cards .cards-card-body p strong {
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-color);
+}
+
+/* CTA links with arrow */
+.cards .cards-card-body p:last-child a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--link-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cards .cards-card-body p:last-child a::after {
+  content: "\2192";
+  font-size: 1.1em;
+  transition: transform 0.2s ease;
+}
+
+.cards .cards-card-body p:last-child a:hover {
+  color: var(--link-hover-color);
+}
+
+.cards .cards-card-body p:last-child a:hover::after {
+  transform: translateX(4px);
+}
+
+/* Tablet: 2 columns */
+@media (width >= 600px) {
+  .cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (width >= 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =============================================
+   Icon-grid variant (e.g. "Experience the difference")
+   ============================================= */
+.cards.icon-grid > ul {
+  gap: 32px 24px;
+}
+
+.cards.icon-grid > ul > li {
+  align-items: center;
+  text-align: center;
+}
+
+.cards.icon-grid .cards-card-image {
+  display: flex;
+  justify-content: center;
+}
+
+.cards.icon-grid > ul > li img {
+  width: 80px;
+  height: 80px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.cards.icon-grid .cards-card-body {
+  padding: 8px 0 0;
+}
+
+.cards.icon-grid .cards-card-body p {
+  margin: 0 0 4px;
+}
+
+/* Tablet: 2 columns */
+@media (width >= 600px) {
+  .cards.icon-grid > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 4 columns */
+@media (width >= 900px) {
+  .cards.icon-grid > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

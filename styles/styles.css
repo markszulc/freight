@@ -358,6 +358,7 @@ main .section.light-gray {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+  text-align: center;
 }
 
 main .section.dark {
